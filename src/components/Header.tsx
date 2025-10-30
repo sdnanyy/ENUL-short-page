@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from 'lucide-react';
+import { Menu, X } from 'lucide-react'; // Corrigido: Bars3Icon para Menu, XMarkIcon para X
 import { Link } from 'react-router-dom';
 import LazyImage from './LazyImage';
 
@@ -19,8 +19,8 @@ const navigation = [
 export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContactForm }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Add a scroll event listener to change header style
-  useState(() => {
+  // Usando useEffect para o listener de scroll
+  useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
         setIsScrolled(true);
@@ -31,7 +31,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, []); // Array de dependências vazio para rodar apenas uma vez na montagem
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
@@ -40,7 +40,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Uni Languages</span>
             <LazyImage
-              src="/logo.png"
+              src="/uni-languages-logo.png" // Corrigido para o nome do arquivo de logo correto
               alt="Uni Languages Logo"
               className="h-10 w-auto"
               width={160}
@@ -55,7 +55,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            <Menu className="h-6 w-6" aria-hidden="true" /> {/* Corrigido: Bars3Icon para Menu */}
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
@@ -76,7 +76,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
             <Link to="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Uni Languages</span>
               <LazyImage
-                src="/logo.png"
+                src="/uni-languages-logo.png" // Corrigido para o nome do arquivo de logo correto
                 alt="Uni Languages Logo"
                 className="h-10 w-auto"
                 width={160}
@@ -89,7 +89,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              <X className="h-6 w-6" aria-hidden="true" /> {/* Corrigido: XMarkIcon para X */}
             </button>
           </div>
           <div className="mt-6 flow-root">
@@ -115,7 +115,6 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
                   className="w-full flex items-center justify-center space-x-2 bg-brand-yellow text-brand-teal px-4 py-2 rounded-full hover:bg-brand-orange-light hover:text-white transition-colors font-semibold"
                 >
                   <span>Quero minha aula grátis!</span>
-                  {/* <ArrowRight className="h-5 w-5" /> */}
                 </button>
               </div>
             </div>
