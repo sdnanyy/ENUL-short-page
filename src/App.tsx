@@ -5,8 +5,8 @@ import ContactForm from './components/ContactForm';
 import HeroValueProposition from './components/HeroValueProposition';
 import EmotionalMentoring from './components/EmotionalMentoring';
 import Testimonials from './components/Testimonials';
-import ValueAnchoring from './components/ValueAnchoring';
-import FAQSection from './components/FAQSection'; // Importando o novo componente FAQSection
+// import ValueAnchoring from './components/ValueAnchoring'; // Removido
+import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
 
 function App() {
@@ -48,8 +48,8 @@ function App() {
             <HeroValueProposition onOpenContactForm={() => setContactFormOpen(true)} />
             <EmotionalMentoring onOpenContactForm={() => setContactFormOpen(true)} />
             <Testimonials onOpenContactForm={() => setContactFormOpen(true)} />
-            <ValueAnchoring />
-            <FAQSection onOpenContactForm={() => setContactFormOpen(true)} /> {/* Adicionando o FAQSection aqui */}
+            {/* <ValueAnchoring /> Removido */}
+            <FAQSection onOpenContactForm={() => setContactFormOpen(true)} />
           </>
         } />
         <Route path="/register" element={null} /> 
