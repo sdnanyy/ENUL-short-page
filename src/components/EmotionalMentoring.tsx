@@ -1,4 +1,3 @@
-
 import { Heart, Shield, Users, MessageCircle, CheckCircle, Star } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 
@@ -31,7 +30,7 @@ export default function EmotionalMentoring({ onOpenContactForm }: EmotionalMento
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-brand-teal/5 to-brand-orange/5">
+    <section id="mentoring" className="py-20 bg-gradient-to-br from-brand-teal/5 to-brand-orange/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">
