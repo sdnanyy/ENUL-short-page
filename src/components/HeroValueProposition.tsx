@@ -49,7 +49,7 @@ export default function HeroValueProposition({ onOpenContactForm }: HeroValuePro
           {/* Seção de Valor/Oferta */}
           <AnimatedSection animation="slideLeft" className="relative bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-brand-orange/20">
             <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-orange text-white px-4 py-2 rounded-full text-sm sm:text-base font-bold shadow-md">
-              Black Friday
+              Oferta Black Friday
             </div>
             
             <div className="text-center mt-6 sm:mt-4 mb-6">
