@@ -14,7 +14,7 @@ export default function HeroValueProposition({ onOpenContactForm }: HeroValuePro
           <AnimatedSection animation="slideRight" className="text-center lg:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
               Você trava na hora de falar inglês?
-              
+              <span>
               <span className="relative inline-block ml-2">
                 <span className="text-brand-teal bg-brand-teal/10 px-1 sm:px-2 py-1 rounded-lg border-2 border-brand-teal/20 shadow-sm">
                   Supere o medo
