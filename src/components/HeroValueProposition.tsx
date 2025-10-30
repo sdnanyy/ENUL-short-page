@@ -1,4 +1,4 @@
-import { Gift, CheckCircle, AlertTriangle } from 'lucide-react';
+import { Gift, CheckCircle } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 
 interface HeroValuePropositionProps {
