@@ -1,6 +1,5 @@
-import { ArrowRight } from 'lucide-react';
+import { Gift, CheckCircle } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
-import LazyImage from './LazyImage';
 
 interface HeroValuePropositionProps {
   onOpenContactForm: () => void;
@@ -8,63 +7,93 @@ interface HeroValuePropositionProps {
 
 export default function HeroValueProposition({ onOpenContactForm }: HeroValuePropositionProps) {
   return (
-    <section className="relative isolate overflow-hidden bg-gradient-to-br from-brand-teal/5 to-brand-yellow/5 pt-24 sm:pt-32 pb-20 sm:pb-28">
-      <div className="absolute inset-0 -z-10 bg-cover bg-center opacity-10" style={{ backgroundImage: 'url(/hero-background.webp)' }}></div>
-      <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-        <div
-          className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-brand-teal to-brand-yellow opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-          style={{
-            clipPath:
-              'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-          }}
-        />
-      </div>
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2 lg:items-center lg:gap-y-8">
+    <section className="pt-24 pb-16 bg-gradient-to-br from-brand-yellow/10 via-white to-brand-orange-light/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Seção de Dor e Solução */}
           <AnimatedSection animation="slideRight" className="text-center lg:text-left">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6"> {/* Ajustado o tamanho da fonte aqui */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
               Você trava na hora de falar inglês?
               <span className="relative inline-block ml-2">
                 <span className="text-brand-teal bg-brand-teal/10 px-1 sm:px-2 py-1 rounded-lg border-2 border-brand-teal/20 shadow-sm">
-                  Nós te ajudamos!
+                  Supere o medo
                 </span>
               </span>
             </h1>
-            <p className="text-lg sm:text-xl leading-relaxed text-gray-700 mb-8 max-w-xl mx-auto lg:mx-0">
-              Com a Uni Languages, você destrava seu inglês e ganha confiança para se comunicar em qualquer situação, com um método focado em você.
+            <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl lg:max-w-none mx-auto">
+              Com aulas online, personalizadas e um ambiente seguro, você vai transformar a ansiedade em confiança e falar inglês com leveza.
             </p>
-            <div className="flex justify-center lg:justify-start">
-              <button
-                onClick={onOpenContactForm}
-                className="inline-flex items-center space-x-2 bg-gradient-to-r from-brand-teal to-brand-orange text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full text-lg sm:text-xl font-bold hover:shadow-xl transition-all transform hover:scale-105 shadow-lg"
-              >
-                <span>Quero minha aula grátis!</span>
-                <ArrowRight className="h-5 w-5" />
-              </button>
+
+            <div className="space-y-4 mb-8 text-left mx-auto lg:mx-0 max-w-md">
+              <div className="flex items-start space-x-3">
+                <CheckCircle className="h-6 w-6 text-brand-teal flex-shrink-0 mt-1" />
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                  <strong>Ambiente seguro</strong> para praticar sem medo de julgamentos.
+                </p>
+              </div>
+              <div className="flex items-start space-x-3">
+                <CheckCircle className="h-6 w-6 text-brand-teal flex-shrink-0 mt-1" />
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                  <strong>Foco total na sua necessidade</strong> com temas do seu interesse.
+                </p>
+              </div>
+              <div className="flex items-start space-x-3">
+                <CheckCircle className="h-6 w-6 text-brand-teal flex-shrink-0 mt-1" />
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                  <strong>Correção gentil</strong> dos erros para aprendizado natural.
+                </p>
+              </div>
             </div>
           </AnimatedSection>
-          <AnimatedSection animation="slideLeft" className="flex justify-center lg:justify-end">
-            <LazyImage
-              src="/hero-image.webp"
-              alt="Estudante feliz aprendendo inglês online"
-              className="w-full max-w-md lg:max-w-lg rounded-3xl shadow-2xl border-4 border-white"
-              width={600}
-              height={400}
-            />
+
+          {/* Seção de Valor/Oferta */}
+          <AnimatedSection animation="slideLeft" className="relative bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-brand-orange/20">
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-orange text-white px-4 py-2 rounded-full text-sm sm:text-base font-bold shadow-md">
+              OFERTA ESPECIAL
+            </div>
+            
+            <div className="text-center mt-6 sm:mt-4 mb-6">
+              <div className="flex items-center justify-center mb-4">
+                <Gift className="h-10 w-10 text-brand-teal mr-3" />
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+                  Plano Semestral com 25% OFF!
+                </h3>
+              </div>
+              <p className="text-gray-600 text-base sm:text-lg mb-2">De <span className="line-through">R$ 399/mês</span> por apenas:</p>
+              <div className="text-5xl sm:text-6xl font-extrabold text-brand-orange mb-4">
+                R$299<span className="text-3xl font-bold">/mês</span>
+              </div>
+              <p className="text-sm sm:text-base text-gray-700 font-medium">
+                Invista na sua confiança e carreira.
+              </p>
+            </div>
+
+            <div className="space-y-4 mb-8">
+              <div className="flex items-center space-x-3 text-gray-800">
+                <CheckCircle className="h-5 w-5 text-brand-teal flex-shrink-0" />
+                <span className="text-base sm:text-lg">Aulas focadas no seu objetivo</span>
+              </div>
+              <div className="flex items-center space-x-3 text-gray-800">
+                <CheckCircle className="h-5 w-5 text-brand-teal flex-shrink-0" />
+                <span className="text-base sm:text-lg">Diagnóstico personalizado</span>
+              </div>
+              <div className="flex items-center space-x-3 text-gray-800">
+                <CheckCircle className="h-5 w-5 text-brand-teal flex-shrink-0" />
+                <span className="text-base sm:text-lg">Suporte direto com o professor</span>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <button
+                onClick={onOpenContactForm}
+                className="w-full bg-gradient-to-r from-brand-teal to-brand-orange text-white px-8 sm:px-12 py-3 sm:py-4 rounded-full text-lg sm:text-xl font-bold hover:shadow-xl transition-all transform hover:scale-105 shadow-lg"
+              >
+                Quero minha aula grátis!
+              </button>
+              <p className="text-xs text-gray-500 mt-3">Garantia de satisfação de 7 dias</p>
+            </div>
           </AnimatedSection>
         </div>
-      </div>
-      <div
-        className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-        aria-hidden="true"
-      >
-        <div
-          className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-brand-teal to-brand-yellow opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-          style={{
-            clipPath:
-              'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-          }}
-        />
       </div>
     </section>
   );

@@ -114,7 +114,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
                   }}
                   className="w-full flex items-center justify-center space-x-2 bg-brand-yellow text-brand-teal px-4 py-2 rounded-full hover:bg-brand-orange-light hover:text-white transition-colors font-semibold"
                 >
-                  <span>Quero saber mais!</span>
+                  <span>Quero minha aula grátis!</span>
                 </button>
               </div>
             </div>
