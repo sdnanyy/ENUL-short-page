@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Menu, X } from 'lucide-react'; // Corrigido: Bars3Icon para Menu, XMarkIcon para X
+import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const navigation = [
-  { name: 'Início', href: '/' },
+  // { name: 'Início', href: '/' }, // Removido
   { name: 'Mentoria', href: '#mentoring' },
   { name: 'Depoimentos', href: '#testimonials' },
   { name: 'FAQ', href: '#faq' },
@@ -49,7 +49,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Abrir menu principal</span>
-            <Menu className="h-6 w-6" aria-hidden="true" /> {/* Corrigido para Menu */}
+            <Menu className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
@@ -65,12 +65,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <button
-            onClick={onOpenContactForm}
-            className="rounded-full bg-gradient-to-r from-brand-teal to-brand-orange px-4 py-2 text-sm font-semibold text-white shadow-sm hover:from-brand-orange hover:to-brand-teal transition-all"
-          >
-            Quero me matricular <span aria-hidden="true">&rarr;</span>
-          </button>
+          {/* Botão "Quero me matricular" removido */}
         </div>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -91,7 +86,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Fechar menu</span>
-              <X className="h-6 w-6" aria-hidden="true" /> {/* Corrigido para X */}
+              <X className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
           <div className="mt-6 flow-root">
@@ -109,15 +104,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
                 ))}
               </div>
               <div className="py-6">
-                <button
-                  onClick={() => {
-                    onOpenContactForm();
-                    setMobileMenuOpen(false);
-                  }}
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Quero me matricular
-                </button>
+                {/* Botão "Quero me matricular" removido do menu mobile */}
               </div>
             </div>
           </div>
