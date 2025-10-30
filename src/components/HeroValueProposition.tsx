@@ -7,7 +7,7 @@ interface HeroValuePropositionProps {
 
 export default function HeroValueProposition({ onOpenContactForm }: HeroValuePropositionProps) {
   return (
-    <section className="pt-24 pb-16 bg-gradient-to-br from-brand-yellow/10 via-white to-brand-orange-light/10">
+    <section className="pt-22 pb-16 bg-gradient-to-br from-brand-yellow/10 via-white to-brand-orange-light/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Seção de Dor e Solução */}
