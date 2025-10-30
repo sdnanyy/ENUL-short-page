@@ -1,5 +1,6 @@
-import { Gift, CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import AnimatedSection from './AnimatedSection';
+import LazyImage from './LazyImage';
 
 interface HeroValuePropositionProps {
   onOpenContactForm: () => void;
@@ -7,90 +8,59 @@ interface HeroValuePropositionProps {
 
 export default function HeroValueProposition({ onOpenContactForm }: HeroValuePropositionProps) {
   return (
-    <section className="pt-24 pb-16 bg-gradient-to-br from-brand-yellow/10 via-white to-brand-orange-light/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Seção de Dor e Solução */}
+    <section className="relative isolate overflow-hidden bg-gradient-to-br from-brand-teal/5 to-brand-orange/5 py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
           <AnimatedSection animation="slideRight" className="text-center lg:text-left">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-700 leading-tight mb-6">
+            <h1 className="text-[28px] sm:text-[34px] md:text-[46px] lg:text-[58px] font-bold text-gray-700 leading-tight mb-6">
               Você trava na hora de falar inglês?
-                          <span className="relative inline-block ml-2">
+              <span className="relative inline-block ml-2">
                 <span className="text-brand-teal bg-brand-teal/10 px-1 sm:px-2 py-1 rounded-lg border-2 border-brand-teal/20 shadow-sm">
-                  Supere o medo
+                  Nós te ajudamos!
                 </span>
+                <svg className="absolute -top-2 -right-2 h-6 w-6 text-brand-yellow transform rotate-12" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 00-1.118l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 00-.364-1.118l-2.8-2.034c-.783-.57-.381-1.81.588-1.81h3.462a1 1 00.95-.69l1.07-3.292z" />
+                </svg>
               </span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl lg:max-w-none mx-auto">
-              Com aulas online, personalizadas e um ambiente seguro, você vai transformar a ansiedade em confiança e falar inglês com leveza.
+            <p className="text-lg sm:text-xl leading-8 text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0">
+              A Uni Languages oferece aulas particulares de inglês com mentoria emocional para mulheres que buscam confiança e fluência para avançar na carreira.
             </p>
-
-            <div className="space-y-4 mb-8 text-left mx-auto lg:mx-0 max-w-md">
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="h-6 w-6 text-brand-teal flex-shrink-0 mt-1" />
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                  <strong>Ambiente seguro</strong> para praticar sem medo de julgamentos.
-                </p>
-              </div>
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="h-6 w-6 text-brand-teal flex-shrink-0 mt-1" />
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                  <strong>Foco total na sua necessidade</strong> com temas do seu interesse.
-                </p>
-              </div>
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="h-6 w-6 text-brand-teal flex-shrink-0 mt-1" />
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                  <strong>Correção gentil</strong> dos erros para aprendizado natural.
-                </p>
-              </div>
-            </div>
-          </AnimatedSection>
-
-          {/* Seção de Valor/Oferta */}
-          <AnimatedSection animation="slideLeft" className="relative bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-brand-orange/20">
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-orange text-white px-4 py-2 rounded-full text-sm sm:text-base font-bold shadow-md">
-              OFERTA BLACK FRIDAY
-            </div>
-            
-            <div className="text-center mt-6 sm:mt-4 mb-6">
-              <div className="flex items-center justify-center mb-4">
-                <Gift className="h-10 w-10 text-brand-teal mr-3" />
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
-                  Plano Semestral com 25% OFF!
-                </h3>
-              </div>
-              <p className="text-gray-600 text-base sm:text-lg mb-2">De <span className="line-through">R$ 399/mês</span> por apenas:</p>
-              <div className="text-5xl sm:text-6xl font-extrabold text-brand-orange mb-4">
-                R$299<span className="text-3xl font-bold">/mês</span>
-              </div>
-              <p className="text-sm sm:text-base text-gray-700 font-medium">
-                Invista na sua confiança e carreira.
-              </p>
-            </div>
-
-            <div className="space-y-4 mb-8">
-              <div className="flex items-center space-x-3 text-gray-800">
-                <CheckCircle className="h-5 w-5 text-brand-teal flex-shrink-0" />
-                <span className="text-base sm:text-lg">Aulas focadas no seu objetivo</span>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-800">
-                <CheckCircle className="h-5 w-5 text-brand-teal flex-shrink-0" />
-                <span className="text-base sm:text-lg">Diagnóstico personalizado</span>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-800">
-                <CheckCircle className="h-5 w-5 text-brand-teal flex-shrink-0" />
-                <span className="text-base sm:text-lg">Suporte direto com o professor</span>
-              </div>
-            </div>
-
-            <div className="text-center">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <button
                 onClick={onOpenContactForm}
-                className="w-full bg-gradient-to-r from-brand-teal to-brand-orange text-white px-8 sm:px-12 py-3 sm:py-4 rounded-full text-lg sm:text-xl font-bold hover:shadow-xl transition-all transform hover:scale-105 shadow-lg"
+                className="bg-gradient-to-r from-brand-teal to-brand-orange text-white px-8 py-4 rounded-full text-lg font-bold hover:shadow-xl transition-all transform hover:scale-105 shadow-lg"
               >
-                Quero aproveitar a oferta!
+                Quero conhecer o método
               </button>
-              <p className="text-xs text-gray-500 mt-3">Garantia de satisfação de 7 dias</p>
+              <Link
+                to="#mentoring"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('mentoring')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="text-brand-teal hover:text-brand-orange-dark font-semibold text-lg flex items-center group"
+              >
+                Saiba mais
+                <svg className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </Link>
+            </div>
+          </AnimatedSection>
+          <AnimatedSection animation="slideLeft" className="relative flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-md lg:max-w-none lg:w-[500px] h-[300px] sm:h-[400px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+              <LazyImage
+                src="https://images.pexels.com/photos/3762804/pexels-photo-3762804.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="Mulher sorrindo e estudando inglês"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute bottom-8 left-8 text-white">
+                <p className="text-xl font-bold">Confiança para falar inglês</p>
+                <p className="text-sm">Sua jornada para a fluência começa aqui.</p>
+              </div>
             </div>
           </AnimatedSection>
         </div>
