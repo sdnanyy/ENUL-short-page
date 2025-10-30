@@ -11,7 +11,7 @@ interface HeaderProps {
 }
 
 const navigation = [
-  { name: 'Aulas Personalizadas', href: '#mentoria-emocional' },
+  { name: 'Mentoria Emocional', href: '#mentoria-emocional' },
   { name: 'Depoimentos', href: '#depoimentos' },
   { name: 'FAQ', href: '#faq' }, // Adicionado link para a seção FAQ
 ];
