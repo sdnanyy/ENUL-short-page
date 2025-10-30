@@ -3,7 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const navigation = [
-  { name: 'Mentoria', href: '#mentoring' },
+  { name: 'Mentoria', href: '#emotionalmentoring' },
   { name: 'Depoimentos', href: '#testimonials' },
   { name: 'FAQ', href: '#faq' },
 ];
