@@ -1,97 +1,64 @@
-import { Gift, CheckCircle } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
+import LazyImage from './LazyImage';
 
 interface HeroValuePropositionProps {
   onOpenContactForm: () => void;
 }
 
 export default function HeroValueProposition({ onOpenContactForm }: HeroValuePropositionProps) {
-  return (
-    <section className="pt-24 pb-16 bg-gradient-to-br from-brand-yellow/10 via-white to-brand-orange-light/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Seção de Dor e Solução */}
-          <AnimatedSection animation="slideRight" className="text-center lg:text-left">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight mb-6">
-              Você trava na hora de falar inglês?
-                          <span className="relative inline-block ml-2">
-                <span className="text-brand-teal bg-brand-teal/10 px-1 sm:px-2 py-1 rounded-lg border-2 border-brand-teal/20 shadow-sm">
-                  Supere o medo
-                </span>
-              </span>
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl lg:max-w-none mx-auto">
-              Com aulas online, personalizadas e um ambiente seguro, você vai transformar a ansiedade em confiança e falar inglês com leveza.
-            </p>
+  const features = [
+    "Aulas particulares e personalizadas",
+    "Foco na sua confiança e autoestima",
+    "Professores especializados em mentoria emocional",
+    "Método exclusivo para mulheres",
+    "Resultados rápidos e duradouros"
+  ];
 
-            <div className="space-y-4 mb-8 text-left mx-auto lg:mx-0 max-w-md">
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="h-6 w-6 text-brand-teal flex-shrink-0 mt-1" />
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                  <strong>Ambiente seguro</strong> para praticar sem medo de julgamentos.
-                </p>
-              </div>
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="h-6 w-6 text-brand-teal flex-shrink-0 mt-1" />
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                  <strong>Foco total na sua necessidade</strong> com temas do seu interesse.
-                </p>
-              </div>
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="h-6 w-6 text-brand-teal flex-shrink-0 mt-1" />
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                  <strong>Correção gentil</strong> dos erros para aprendizado natural.
-                </p>
+  return (
+    <section className="relative isolate overflow-hidden bg-gradient-to-br from-brand-teal/5 to-brand-orange/5 py-20 sm:py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center">
+          <AnimatedSection animation="slideRight" className="lg:pr-8 lg:pt-4">
+            <div className="lg:max-w-lg">
+              <h2 className="text-base font-semibold leading-7 text-brand-teal">Sua jornada para a fluência começa aqui</h2>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Aulas de inglês para mulheres que querem avançar na carreira
+              </p>
+              <p className="mt-6 text-lg leading-8 text-gray-600">
+                Na Uni Languages, você não aprende apenas inglês, você desenvolve a confiança para se comunicar sem medo e alcançar seus objetivos profissionais.
+              </p>
+              <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
+                {features.map((feature) => (
+                  <div key={feature} className="relative pl-9">
+                    <dt className="inline font-semibold text-gray-900">
+                      <CheckCircle className="absolute left-1 top-1 h-5 w-5 text-brand-teal" aria-hidden="true" />
+                      {feature}
+                    </dt>{' '}
+                  </div>
+                ))}
+              </dl>
+              <div className="mt-10">
+                <button
+                  onClick={onOpenContactForm}
+                  className="bg-gradient-to-r from-brand-teal to-brand-orange text-white px-8 py-4 rounded-full text-lg font-bold hover:shadow-xl transition-all transform hover:scale-105 shadow-lg"
+                >
+                  Quero transformar meu inglês
+                </button>
               </div>
             </div>
           </AnimatedSection>
-
-          {/* Seção de Valor/Oferta */}
           <AnimatedSection animation="slideLeft" className="relative bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-brand-orange/20">
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-orange text-white px-4 py-2 rounded-full text-sm sm:text-base font-bold shadow-md">
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-orange text-white px-4 py-2 rounded-full text-sm sm:text-base font-bold shadow-md text-center"> {/* Adicionado text-center aqui */}
               OFERTA BLACK FRIDAY
             </div>
-            
-            <div className="text-center mt-6 sm:mt-4 mb-6">
-              <div className="flex items-center justify-center mb-4">
-                <Gift className="h-10 w-10 text-brand-teal mr-3" />
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
-                  Plano Semestral com 25% OFF!
-                </h3>
-              </div>
-              <p className="text-gray-600 text-base sm:text-lg mb-2">De <span className="line-through">R$ 399/mês</span> por apenas:</p>
-              <div className="text-5xl sm:text-6xl font-extrabold text-brand-orange mb-4">
-                R$299<span className="text-3xl font-bold">/mês</span>
-              </div>
-              <p className="text-sm sm:text-base text-gray-700 font-medium">
-                Invista na sua confiança e carreira.
-              </p>
-            </div>
-
-            <div className="space-y-4 mb-8">
-              <div className="flex items-center space-x-3 text-gray-800">
-                <CheckCircle className="h-5 w-5 text-brand-teal flex-shrink-0" />
-                <span className="text-base sm:text-lg">Aulas focadas no seu objetivo</span>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-800">
-                <CheckCircle className="h-5 w-5 text-brand-teal flex-shrink-0" />
-                <span className="text-base sm:text-lg">Diagnóstico personalizado</span>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-800">
-                <CheckCircle className="h-5 w-5 text-brand-teal flex-shrink-0" />
-                <span className="text-base sm:text-lg">Suporte direto com o professor</span>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <button
-                onClick={onOpenContactForm}
-                className="w-full bg-gradient-to-r from-brand-teal to-brand-orange text-white px-8 sm:px-12 py-3 sm:py-4 rounded-full text-lg sm:text-xl font-bold hover:shadow-xl transition-all transform hover:scale-105 shadow-lg"
-              >
-                Quero aproveitar a oferta!
-              </button>
-              <p className="text-xs text-gray-500 mt-3">Garantia de satisfação de 7 dias</p>
-            </div>
+            <LazyImage
+              src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="Mulher sorrindo e estudando inglês"
+              className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
+              width={2432}
+              height={1442}
+            />
           </AnimatedSection>
         </div>
       </div>
