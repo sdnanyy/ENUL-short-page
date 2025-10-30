@@ -35,7 +35,7 @@ function App() {
       <Header
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
-        // onOpenContactForm={() => setContactFormOpen(true)} // Removido
+        onOpenContactForm={() => setContactFormOpen(true)}
       />
       <ContactForm
         isOpen={contactFormOpen}

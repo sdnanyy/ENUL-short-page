@@ -1,89 +1,91 @@
-import { Disclosure } from '@headlessui/react';
-import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline';
+import { ChevronDown } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
+import { useState } from 'react';
 
 interface FAQSectionProps {
   onOpenContactForm: () => void;
 }
 
-const faqs = [
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+const faqs: FAQItem[] = [
   {
-    question: 'Como funcionam as aulas?',
-    answer:
-      'Nossas aulas são particulares e personalizadas, focadas nas suas necessidades e objetivos. Utilizamos uma metodologia que combina o aprendizado do idioma com técnicas de mentoria emocional para superar bloqueios.',
+    question: "O curso é gratuito?",
+    answer: "Não. Nosso curso é um investimento no seu futuro e na sua confiança. A oferta atual está com um valor super acessível:\n\nR$299 por mês\n\nDuração: 6 meses\n\nInclui uma aula ao vivo por semana com acompanhamento individualizado."
   },
   {
-    question: 'Qual a duração e frequência das aulas?',
-    answer:
-      'A duração e frequência são flexíveis e adaptadas à sua disponibilidade. Geralmente, recomendamos aulas de 60 minutos, uma ou duas vezes por semana, mas podemos ajustar conforme sua preferência.',
+    question: "As aulas são presenciais ou online?",
+    answer: "Todas as nossas aulas são 100% online e ao vivo! Você pode participar de qualquer lugar através da nossa plataforma de videoconferência.\n\nIsso garante a flexibilidade que você precisa sem perder a interação e o suporte direto do professor, como se estivesse na sala de aula."
   },
   {
-    question: 'Preciso ter algum nível de inglês para começar?',
-    answer:
-      'Não! Atendemos todos os níveis, do básico ao avançado. Nossas aulas são totalmente personalizadas, então começaremos exatamente do ponto em que você está.',
+    question: "O que é a Mentoria Emocional?",
+    answer: "A Mentoria Emocional é o nosso diferencial! Sabemos que a parte emocional (como o medo de errar ou a falta de confiança) é o que mais atrapalha no aprendizado de um novo idioma.\n\nNossos professores são treinados para ir além da gramática e do vocabulário. Eles atuam como mentores para:\n\nAjudar você a superar a timidez e o bloqueio na hora de falar.\n\nTrabalhar a sua confiança e segurança para se expressar no novo idioma.\n\nCom a Mentoria Emocional, você não aprende só uma língua, mas também desenvolve a coragem e a fluidez para usá-la em qualquer situação."
   },
   {
-    question: 'Vocês oferecem material didático?',
-    answer:
-      'Sim, todo o material didático é fornecido e adaptado ao seu perfil de aprendizado. Além disso, incentivamos o uso de recursos autênticos para uma imersão completa.',
-  },
-  {
-    question: 'Como a mentoria emocional se integra ao aprendizado de inglês?',
-    answer:
-      'A mentoria emocional é um pilar fundamental. Trabalhamos para identificar e superar medos, ansiedade e inseguranças que podem atrapalhar o aprendizado, construindo autoconfiança para você se expressar livremente.',
-  },
-  {
-    question: 'Qual o valor do investimento?',
-    answer:
-      'O investimento varia de acordo com o plano de aulas e a frequência escolhida. Entre em contato conosco para agendarmos uma conversa e apresentarmos as opções que melhor se encaixam em você.',
-  },
+    question: "O curso oferece certificado de conclusão?",
+    answer: "Sim, com certeza! Ao completar os 6 meses de aulas e cumprir a carga horária e atividades propostas, você receberá o nosso Certificado de Conclusão.\n\nEste certificado comprova a sua dedicação e o seu nível de proficiência atingido, sendo um documento importante para o seu currículo profissional e acadêmico."
+  }
 ];
 
 export default function FAQSection({ onOpenContactForm }: FAQSectionProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(prevIndex => (prevIndex === index ? null : index));
+  };
+
   return (
-    <AnimatedSection>
-      <div id="faq" className="bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
-          <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
-            <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900">
-              Perguntas Frequentes
-            </h2>
-            <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
-              {faqs.map((faq) => (
-                <Disclosure as="div" key={faq.question} className="pt-6">
-                  {({ open }) => (
-                    <>
-                      <dt>
-                        <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-900">
-                          <span className="text-base font-semibold leading-7">{faq.question}</span>
-                          <span className="ml-6 flex h-7 items-center">
-                            {open ? (
-                              <MinusSmallIcon className="h-6 w-6" aria-hidden="true" />
-                            ) : (
-                              <PlusSmallIcon className="h-6 w-6" aria-hidden="true" />
-                            )}
-                          </span>
-                        </Disclosure.Button>
-                      </dt>
-                      <Disclosure.Panel as="dd" className="mt-2 pr-12">
-                        <p className="text-base leading-7 text-gray-600">{faq.answer}</p>
-                      </Disclosure.Panel>
-                    </>
-                  )}
-                </Disclosure>
-              ))}
-            </dl>
-          </div>
-          <div className="mt-12 text-center">
-            <button
-              onClick={onOpenContactForm}
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-brand-teal hover:bg-brand-dark-teal focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-teal transition-colors"
-            >
-              Quero destravar meu inglês
-            </button>
-          </div>
+    <section id="faq" className="py-20 bg-gradient-to-br from-brand-teal/5 to-brand-yellow/5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Perguntas Frequentes
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+            Tire suas dúvidas sobre o método Uni Languages
+          </p>
+        </AnimatedSection>
+
+        <div className="max-w-3xl mx-auto space-y-6 mb-12">
+          {faqs.map((faq, index) => (
+            <AnimatedSection key={index} animation="slideUp">
+              <div className="bg-white rounded-2xl shadow-lg border border-gray-100">
+                <button
+                  className="flex justify-between items-center w-full p-5 text-left text-lg font-semibold text-gray-900 focus:outline-none"
+                  onClick={() => toggleFAQ(index)}
+                >
+                  <span>{faq.question}</span>
+                  <ChevronDown
+                    className={`h-6 w-6 text-brand-teal transition-transform duration-300 ${
+                      openIndex === index ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                {openIndex === index && (
+                  <div className="px-5 pb-5 pt-2 text-gray-700 text-base leading-relaxed border-t border-gray-100 whitespace-pre-line">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            </AnimatedSection>
+          ))}
         </div>
+
+        <AnimatedSection className="text-center">
+          <p className="text-lg sm:text-xl text-gray-700 mb-6 font-medium">
+            Ainda tem dúvidas? Fale conosco!
+          </p>
+          <button
+            onClick={onOpenContactForm}
+            className="inline-flex items-center space-x-2 bg-gradient-to-r from-brand-teal to-brand-orange text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full text-lg sm:text-xl font-bold hover:shadow-xl transition-all transform hover:scale-105 shadow-lg"
+          >
+            <span>Entrar em Contato</span>
+          </button>
+        </AnimatedSection>
       </div>
-    </AnimatedSection>
+    </section>
   );
 }

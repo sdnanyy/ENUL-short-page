@@ -1,105 +1,117 @@
+import { Star, Briefcase, GraduationCap, Globe } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 
-interface TestimonialsProps {
-  onOpenContactForm: () => void;
-}
+const testimonials = [
+  {
+    name: "Tamires C.",
+    profession: "Gerente",
+    icon: Briefcase,
+    iconColor: "bg-brand-teal",
+    text: "O método de ensino é muito especial, tem conversação, leitura e escrita de uma maneira dinâmica, prática e fluída. Fica leve o estudo e parece que estimula e fixa mais o aprendizado. Eu me sinto livre para falar.",
+    rating: 5
+  },
+  {
+    name: "Munique F.",
+    profession: "Estudante",
+    icon: GraduationCap,
+    iconColor: "bg-brand-orange",
+    text: "Com a Uni o meu inglês está evoluindo e acredito que outras pessoas também possam evoluir e chegar no seu objetivo no inglês, tenho certeza que qualquer pessoa ia amar e aprender muito com as aulas da Uni Languages.",
+    rating: 5
+  },
+  {
+    name: "Paula Q.",
+    profession: "Líder Global",
+    icon: Globe,
+    iconColor: "bg-brand-yellow",
+    text: "Quando comecei minhas aulas eu me sentia insegura e com muito medo de falar nas reuniões de trabalho, hoje sou fluente e líder de uma equipe Global que atende LATAM e USA.",
+    rating: 5
+  }
+];
 
-export default function Testimonials({ onOpenContactForm }: TestimonialsProps) {
+export default function Testimonials({ onOpenContactForm }: { onOpenContactForm: () => void }) {
   return (
-    <AnimatedSection>
-      <div id="depoimentos" className="bg-white py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-xl text-center">
-            <h2 className="text-base font-semibold leading-7 text-brand-teal">Depoimentos</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              O que nossas alunas dizem
-            </p>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              Histórias de sucesso que inspiram e mostram o poder da confiança no aprendizado de inglês.
-            </p>
-          </div>
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm leading-6 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-cols-4">
-            <figure className="relative col-span-2 row-span-2 rounded-2xl bg-gray-50 p-6 shadow-lg sm:col-span-1 xl:col-span-2">
-              <blockquote className="text-gray-900">
-                <p>
-                  “A Uni Languages transformou minha relação com o inglês. Antes, eu tinha muito medo de falar, mas as aulas personalizadas e o apoio emocional me deram a confiança que eu precisava. Hoje, me sinto muito mais à vontade para me comunicar!”
-                </p>
-              </blockquote>
-              <figcaption className="mt-6 flex items-center gap-x-4">
-                <img className="h-10 w-10 rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                <div>
-                  <div className="font-semibold text-gray-900">Maria Silva</div>
-                  <div className="text-gray-600">Aluna Uni Languages</div>
+    <section id="depoimentos" className="py-20 bg-gradient-to-br from-brand-yellow/10 to-brand-orange-light/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="text-center mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            O que nossas alunas dizem
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-600">
+            Histórias reais de transformação e conquista da confiança
+          </p>
+        </AnimatedSection>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+          {testimonials.map((testimonial, index) => {
+            return (
+              <AnimatedSection
+                key={index}
+                animation="slideUp"
+                className="bg-white rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <div className="flex items-center mb-6">
+                  <div className="relative">
+                    <div className="w-16 h-16 rounded-full overflow-hidden shadow-lg">
+                      {index === 0 && (
+                        <img 
+                          src="https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" 
+                          alt="Tamires C."
+                          className="w-full h-full object-cover object-top"
+                        />
+                      )}
+                      {index === 1 && (
+                        <img 
+                          src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" 
+                          alt="Munique F."
+                          className="w-full h-full object-cover object-top"
+                        />
+                      )}
+                      {index === 2 && (
+                        <img 
+                          src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1" 
+                          alt="Paula Q."
+                          className="w-full h-full object-cover object-center"
+                        />
+                      )}
+                    </div>
+                    <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-md">
+                      <Star className="w-3 h-3 text-brand-yellow fill-current" />
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <h4 className="text-sm sm:text-base font-bold text-gray-900">{testimonial.name}</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">{testimonial.profession}</p>
+                  </div>
                 </div>
-              </figcaption>
-            </figure>
-            <figure className="rounded-2xl bg-gray-50 p-6 shadow-lg">
-              <blockquote className="text-gray-900">
-                <p>
-                  “Sempre tive dificuldade em me expressar em inglês, mas a metodologia da Uni Languages me ajudou a destravar. As mentorias emocionais são um diferencial incrível!”
-                </p>
-              </blockquote>
-              <figcaption className="mt-6 flex items-center gap-x-4">
-                <img className="h-10 w-10 rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                <div>
-                  <div className="font-semibold text-gray-900">Ana Paula</div>
-                  <div className="text-gray-600">Aluna Uni Languages</div>
+
+                <div className="flex mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-brand-yellow fill-current" />
+                  ))}
                 </div>
-              </figcaption>
-            </figure>
-            <figure className="rounded-2xl bg-gray-50 p-6 shadow-lg">
-              <blockquote className="text-gray-900">
-                <p>
-                  “As aulas são leves e divertidas, e o mais importante: me sinto segura para errar e aprender. Recomendo a todas que querem falar inglês sem medo!”
+
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed italic">
+                  "{testimonial.text}"
                 </p>
-              </blockquote>
-              <figcaption className="mt-6 flex items-center gap-x-4">
-                <img className="h-10 w-10 rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                <div>
-                  <div className="font-semibold text-gray-900">Carla Mendes</div>
-                  <div className="text-gray-600">Aluna Uni Languages</div>
-                </div>
-              </figcaption>
-            </figure>
-            <figure className="rounded-2xl bg-gray-50 p-6 shadow-lg">
-              <blockquote className="text-gray-900">
-                <p>
-                  “Finalmente encontrei um método que funciona para mim. A Uni Languages me ajudou a destravar meu inglês e a me sentir confiante em qualquer situação.”
-                </p>
-              </blockquote>
-              <figcaption className="mt-6 flex items-center gap-x-4">
-                <img className="h-10 w-10 rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1502685104226-ee323f49cd7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                <div>
-                  <div className="font-semibold text-gray-900">Juliana Lima</div>
-                  <div className="text-gray-600">Aluna Uni Languages</div>
-                </div>
-              </figcaption>
-            </figure>
-            <figure className="rounded-2xl bg-gray-50 p-6 shadow-lg">
-              <blockquote className="text-gray-900">
-                <p>
-                  “As aulas são muito dinâmicas e a professora é super atenciosa. Sinto que estou evoluindo a cada dia e perdendo o medo de falar.”
-                </p>
-              </blockquote>
-              <figcaption className="mt-6 flex items-center gap-x-4">
-                <img className="h-10 w-10 rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                <div>
-                  <div className="font-semibold text-gray-900">Fernanda Costa</div>
-                  <div className="text-gray-600">Aluna Uni Languages</div>
-                </div>
-              </figcaption>
-            </figure>
-          </div>
-          <div className="mt-12 text-center">
-            <button
-              onClick={onOpenContactForm}
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-brand-teal hover:bg-brand-dark-teal focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-teal transition-colors"
-            >
-              Quero destravar meu inglês
-            </button>
-          </div>
+              </AnimatedSection>
+            );
+          })}
+        </div>
+
+        <div className="text-center">
+          <p className="text-base sm:text-lg text-gray-600 mb-6">
+            Elas também tinham medo de errar. Hoje falam Inglês com confiança.
+
+Agora é a sua vez de transformar o seu jeito de aprender! 
+          </p>
+          <button
+            onClick={onOpenContactForm}
+            className="bg-green-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-green-600 transition-all transform hover:scale-105 shadow-lg"
+          >
+            Quero mudar minha história
+          </button>
         </div>
       </div>
-    </AnimatedSection>
+    </section>
   );
 }
