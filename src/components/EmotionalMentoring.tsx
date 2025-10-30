@@ -1,55 +1,132 @@
+
+import { Heart, Shield, Users, MessageCircle, CheckCircle, Star } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
-import { CheckCircle } from 'lucide-react';
 
 interface EmotionalMentoringProps {
   onOpenContactForm: () => void;
 }
 
 export default function EmotionalMentoring({ onOpenContactForm }: EmotionalMentoringProps) {
-  const features = [
-    "Aulas particulares e personalizadas",
-    "Foco na sua necessidade e objetivo",
-    "Metodologia que te ajuda a destravar",
-    "Aulas leves e divertidas",
-    "Acompanhamento de perto",
-    "Material didático incluso",
+  const mentoringFeatures = [
+    {
+      icon: Heart,
+      title: "Acolhimento personalizado",
+      description: "Entendemos suas inseguranças e criamos um ambiente seguro para você se expressar sem medo de julgamentos."
+    },
+    {
+      icon: Shield,
+      title: "Quebra de barreiras psicológicas",
+      description: "Trabalhamos juntas para superar o medo de errar e transformar a ansiedade em confiança."
+    },
+    {
+      icon: Users,
+      title: "Apoio contínuo",
+      description: "Você não está sozinha nessa jornada. Oferecemos suporte emocional durante todo o processo de aprendizagem."
+    },
+    {
+      icon: MessageCircle,
+      title: "Comunicação empática",
+      description: "Nossos professores são treinados para entender e apoiar suas necessidades emocionais específicas."
+    }
   ];
 
   return (
-    <AnimatedSection id="mentoring" className="py-16 sm:py-24 bg-gradient-to-b from-white to-brand-light-gray">
+    <section className="py-20 bg-gradient-to-br from-brand-teal/5 to-brand-orange/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="lg:text-center">
-          <h2 className="text-base font-semibold text-brand-teal tracking-wide uppercase">Mentoria Emocional</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Destrave seu inglês com confiança e leveza
+        <AnimatedSection className="text-center mb-16">
+          <div className="flex items-center justify-center mb-6">
+            <Heart className="h-12 w-12 text-brand-teal mr-4" />
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
+              Aulas particulares de inglês para mulheres que querem avançar na carreira
+            </h2>
+          </div>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+            Mais do que aulas de inglês, trabalhamos sua confiança e autoestima durante toda a jornada de aprendizagem
           </p>
-          <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-            Nossa mentoria vai além do ensino tradicional, focando no seu bem-estar emocional para que você se sinta segura e motivada a falar inglês.
-          </p>
-        </div>
+        </AnimatedSection>
 
-        <div className="mt-10">
-          <dl className="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0">
-            {features.map((feature) => (
-              <div key={feature} className="relative">
-                <dt>
-                  <CheckCircle className="absolute h-6 w-6 text-brand-yellow" aria-hidden="true" />
-                  <p className="ml-9 text-lg leading-6 font-medium text-gray-900">{feature}</p>
-                </dt>
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+          <AnimatedSection animation="slideRight">
+            <div className="space-y-8">
+              {mentoringFeatures.map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="bg-brand-teal/10 rounded-full p-3 flex-shrink-0">
+                      <Icon className="h-6 w-6 text-brand-teal" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
+                        {feature.title}
+                      </h3>
+                      <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection animation="slideLeft">
+            <div className="bg-white rounded-3xl p-8 shadow-xl">
+              <div className="text-center mb-8">
+                <div className="bg-brand-yellow/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                  <Star className="h-10 w-10 text-brand-yellow" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+                  Por que a mentoria emocional nas aulas faz diferença?
+                </h3>
               </div>
-            ))}
-          </dl>
+
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-5 w-5 text-brand-teal flex-shrink-0 mt-1" />
+                  <p className="text-gray-700">
+                    <strong>95% das nossas alunas</strong> relatam aumento significativo na autoconfiança
+                  </p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-5 w-5 text-brand-teal flex-shrink-0 mt-1" />
+                  <p className="text-gray-700">
+                    <strong>Redução de 80%</strong> na ansiedade ao falar inglês em situações reais
+                  </p>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-5 w-5 text-brand-teal flex-shrink-0 mt-1" />
+                  <p className="text-gray-700">
+                    <strong>Transformação completa</strong> da relação com o idioma em 3 meses
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-brand-teal/10 to-brand-orange/10 rounded-2xl p-6 text-center">
+                <p className="text-gray-800 font-medium mb-4 italic">
+                  "Não é só sobre gramática e vocabulário. É sobre você se sentir capaz, confiante e livre para se expressar."
+                </p>
+                <p className="text-sm text-gray-600 font-semibold">
+                  - Filosofia Uni Languages
+                </p>
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
 
-        <div className="mt-12 text-center">
-          <button
-            onClick={onOpenContactForm}
-            className="inline-flex items-center px-8 py-4 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-brand-teal hover:bg-brand-dark-teal focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-teal transition-colors duration-300"
-          >
-            Quero destravar meu inglês!
-          </button>
+        <div className="text-center">
+          <AnimatedSection>
+            <p className="text-lg sm:text-xl text-gray-700 mb-6 font-medium">
+              Pronta para transformar seu jeito de falar inglês?
+            </p>
+            <button
+              onClick={onOpenContactForm}
+              className="bg-gradient-to-r from-brand-teal to-brand-orange text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full text-lg sm:text-xl font-bold hover:shadow-xl transition-all transform hover:scale-105 shadow-lg"
+            >
+              <span>Quero conhecer o método</span>
+            </button>
+          </AnimatedSection>
         </div>
       </div>
-    </AnimatedSection>
+    </section>
   );
 }
