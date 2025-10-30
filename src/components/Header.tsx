@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const navigation = [
+  // { name: 'Início', href: '/' }, // Removido
   { name: 'Mentoria', href: '#mentoring' },
   { name: 'Depoimentos', href: '#testimonials' },
   { name: 'FAQ', href: '#faq' },
@@ -36,7 +37,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
             <span className="sr-only">Uni Languages</span>
             <img
               className="h-10 w-auto"
-              src="/uni-languages-logo.png" {/* Caminho do logo atualizado */}
+              src="/logo.png"
               alt="Uni Languages Logo"
             />
           </Link>
@@ -75,7 +76,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
               <span className="sr-only">Uni Languages</span>
               <img
                 className="h-10 w-auto"
-                src="/uni-languages-logo.png" {/* Caminho do logo atualizado */}
+                src="/logo.png"
                 alt="Uni Languages Logo"
               />
             </Link>
