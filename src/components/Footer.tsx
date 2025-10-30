@@ -8,9 +8,9 @@ export default function Footer() {
           <div className="sm:col-span-2">
             <div className="mb-6">
               <img 
-                src="/uni-languages-logo.png" {/* Caminho do logo atualizado */}
+                src="/uni-languages-logo.png"
                 alt="Uni Languages" 
-                className="h-10 sm:h-12" {/* Removidas as classes brightness-0 invert */}
+                className="h-10 sm:h-12"
               />
             </div>
             <p className="text-sm sm:text-base text-white/80 mb-6 leading-relaxed">

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -12,10 +11,10 @@ const navigation = [
 interface HeaderProps {
   mobileMenuOpen: boolean;
   setMobileMenuOpen: (open: boolean) => void;
-  onOpenContactForm: () => void;
+  // onOpenContactForm: () => void; // Removido
 }
 
-export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContactForm }: HeaderProps) {
+export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProps) { // onOpenContactForm removido
   const handleNavigationClick = (href: string) => {
     if (href.startsWith('#')) {
       const element = document.getElementById(href.substring(1));
@@ -36,7 +35,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
             <span className="sr-only">Uni Languages</span>
             <img
               className="h-10 w-auto"
-              src="/uni-languages-logo.png" {/* Caminho do logo atualizado */}
+              src="/uni-languages-logo.png"
               alt="Uni Languages Logo"
             />
           </Link>
@@ -75,7 +74,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
               <span className="sr-only">Uni Languages</span>
               <img
                 className="h-10 w-auto"
-                src="/uni-languages-logo.png" {/* Caminho do logo atualizado */}
+                src="/uni-languages-logo.png"
                 alt="Uni Languages Logo"
               />
             </Link>
