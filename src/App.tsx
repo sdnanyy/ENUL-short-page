@@ -2,12 +2,10 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import ContactForm from './components/ContactForm';
-import HeroSection from './components/HeroSection';
-// import Pillars from './components/Pillars'; // Removendo a importação de Pillars
+import HeroValueProposition from './components/HeroValueProposition'; // Importando o novo componente
 import EmotionalMentoring from './components/EmotionalMentoring';
-import Problem from './components/Problem';
 import Testimonials from './components/Testimonials';
-import CTA from './components/CTA';
+import ValueAnchoring from './components/ValueAnchoring'; // Mantendo ValueAnchoring para ROI
 import Footer from './components/Footer';
 
 function App() {
@@ -46,12 +44,10 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <HeroSection onOpenContactForm={() => setContactFormOpen(true)} /> {/* Passando a prop onOpenContactForm */}
-            <Problem onOpenContactForm={() => setContactFormOpen(true)} />
+            <HeroValueProposition onOpenContactForm={() => setContactFormOpen(true)} /> {/* Usando o novo componente */}
             <EmotionalMentoring onOpenContactForm={() => setContactFormOpen(true)} />
             <Testimonials onOpenContactForm={() => setContactFormOpen(true)} />
-            {/* <Pillars /> Removendo o componente Pillars */}
-            <CTA onOpenContactForm={() => setContactFormOpen(true)} />
+            <ValueAnchoring /> {/* Mantendo ValueAnchoring */}
           </>
         } />
         <Route path="/register" element={null} /> 
