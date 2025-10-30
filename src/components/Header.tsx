@@ -1,9 +1,10 @@
-import { Dialog } from '@headlessui/react'; // Removido useState
+import { Dialog } from '@headlessui/react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import React from 'react'; // Importar React para React.MouseEvent
 
 const navigation = [
-  { name: 'Mentoria', href: '#emotionalmentoring' },
+  { name: 'Mentoria', href: '#mentoring' },
   { name: 'Depoimentos', href: '#testimonials' },
   { name: 'FAQ', href: '#faq' },
 ];
@@ -11,18 +12,16 @@ const navigation = [
 interface HeaderProps {
   mobileMenuOpen: boolean;
   setMobileMenuOpen: (open: boolean) => void;
-  // onOpenContactForm: () => void; // Removido, pois não é mais usado neste componente
 }
 
-export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProps) { // Removido onOpenContactForm
-  const handleNavigationClick = (href: string) => {
+export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProps) {
+  const handleNavigationClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
+      e.preventDefault(); // Previne o comportamento padrão do Link para âncoras
       const element = document.getElementById(href.substring(1));
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-    } else {
-      // Para rotas que não são âncoras, o Link do React Router cuidará disso
     }
     setMobileMenuOpen(false); // Fechar menu mobile após clicar
   };
@@ -55,7 +54,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
             <Link
               key={item.name}
               to={item.href}
-              onClick={() => handleNavigationClick(item.href)}
+              onClick={(e) => handleNavigationClick(e, item.href)}
               className="text-sm font-semibold leading-6 text-gray-900 hover:text-brand-teal transition-colors"
             >
               {item.name}
@@ -94,7 +93,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
                   <Link
                     key={item.name}
                     to={item.href}
-                    onClick={() => handleNavigationClick(item.href)}
+                    onClick={(e) => handleNavigationClick(e, item.href)}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     {item.name}
