@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from 'lucide-react';
-import { Link } from 'react-router-dom'; // Importar Link
+import { Menu, X } from 'lucide-react'; // Corrigido: Bars3Icon para Menu, XMarkIcon para X
+import { Link } from 'react-router-dom';
 
 const navigation = [
   { name: 'Início', href: '/' },
@@ -49,15 +49,15 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Abrir menu principal</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            <Menu className="h-6 w-6" aria-hidden="true" /> {/* Corrigido para Menu */}
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
             <Link
               key={item.name}
-              to={item.href} // Usar 'to' para Link
-              onClick={() => handleNavigationClick(item.href)} // Manter o scroll para âncoras
+              to={item.href}
+              onClick={() => handleNavigationClick(item.href)}
               className="text-sm font-semibold leading-6 text-gray-900 hover:text-brand-teal transition-colors"
             >
               {item.name}
@@ -91,7 +91,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Fechar menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              <X className="h-6 w-6" aria-hidden="true" /> {/* Corrigido para X */}
             </button>
           </div>
           <div className="mt-6 flow-root">
@@ -100,8 +100,8 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
-                    to={item.href} // Usar 'to' para Link
-                    onClick={() => handleNavigationClick(item.href)} // Manter o scroll para âncoras
+                    to={item.href}
+                    onClick={() => handleNavigationClick(item.href)}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     {item.name}
