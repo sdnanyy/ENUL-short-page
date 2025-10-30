@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Menu, X } from 'lucide-react'; // Corrigido: Bars3Icon para Menu, XMarkIcon para X
+import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import LazyImage from './LazyImage';
 
@@ -13,7 +13,7 @@ interface HeaderProps {
 const navigation = [
   { name: 'Mentoria Emocional', href: '#mentoria-emocional' },
   { name: 'Depoimentos', href: '#depoimentos' },
-  { name: 'FAQ', href: '#faq' },
+  { name: 'FAQ', href: '#faq' }, // Adicionado link para a seção FAQ
 ];
 
 export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContactForm }: HeaderProps) {
@@ -40,7 +40,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Uni Languages</span>
             <LazyImage
-              src="/uni-languages-logo.png" // Corrigido para o nome do arquivo de logo correto
+              src="/uni-languages-logo.png"
               alt="Uni Languages Logo"
               className="h-10 w-auto"
               width={160}
@@ -55,7 +55,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
-            <Menu className="h-6 w-6" aria-hidden="true" /> {/* Corrigido: Bars3Icon para Menu */}
+            <Menu className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
@@ -76,7 +76,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
             <Link to="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Uni Languages</span>
               <LazyImage
-                src="/uni-languages-logo.png" // Corrigido para o nome do arquivo de logo correto
+                src="/uni-languages-logo.png"
                 alt="Uni Languages Logo"
                 className="h-10 w-auto"
                 width={160}
@@ -89,7 +89,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              <X className="h-6 w-6" aria-hidden="true" /> {/* Corrigido: XMarkIcon para X */}
+              <X className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
           <div className="mt-6 flow-root">

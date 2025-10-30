@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import ContactForm from './components/ContactForm';
-import HeroValueProposition from './components/HeroValueProposition'; // Importando o novo componente
+import HeroValueProposition from './components/HeroValueProposition';
 import EmotionalMentoring from './components/EmotionalMentoring';
 import Testimonials from './components/Testimonials';
-import ValueAnchoring from './components/ValueAnchoring'; // Mantendo ValueAnchoring para ROI
+import ValueAnchoring from './components/ValueAnchoring';
+import FAQSection from './components/FAQSection'; // Importando o novo componente FAQSection
 import Footer from './components/Footer';
 
 function App() {
@@ -44,10 +45,11 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <HeroValueProposition onOpenContactForm={() => setContactFormOpen(true)} /> {/* Usando o novo componente */}
+            <HeroValueProposition onOpenContactForm={() => setContactFormOpen(true)} />
             <EmotionalMentoring onOpenContactForm={() => setContactFormOpen(true)} />
             <Testimonials onOpenContactForm={() => setContactFormOpen(true)} />
-            <ValueAnchoring /> {/* Mantendo ValueAnchoring */}
+            <ValueAnchoring />
+            <FAQSection onOpenContactForm={() => setContactFormOpen(true)} /> {/* Adicionando o FAQSection aqui */}
           </>
         } />
         <Route path="/register" element={null} /> 
