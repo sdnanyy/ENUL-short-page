@@ -10,7 +10,7 @@ export default function Footer() {
               <img 
                 src="/uni-languages-logo.png"
                 alt="Uni Languages" 
-                className="h-10 sm:h-12"
+                className="h-8 sm:h-10" {/* Ajustado para ser um logo menor */}
               />
             </div>
             <p className="text-sm sm:text-base text-white/80 mb-6 leading-relaxed">
