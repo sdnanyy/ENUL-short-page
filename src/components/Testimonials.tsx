@@ -106,7 +106,7 @@ Agora é a sua vez de transformar o seu jeito de aprender!
           </p>
           <button
             onClick={onOpenContactForm}
-            className="bg-green-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-green-600 transition-all transform hover:scale-105 shadow-lg"
+            className="bg-gradient-to-r from-brand-teal to-brand-orange text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:shadow-xl transition-all transform hover:scale-105 shadow-lg"
           >
             Quero mudar minha história
           </button>
