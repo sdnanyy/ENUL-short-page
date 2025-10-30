@@ -88,7 +88,7 @@ export default function HeroValueProposition({ onOpenContactForm }: HeroValuePro
                 onClick={onOpenContactForm}
                 className="w-full bg-gradient-to-r from-brand-teal to-brand-orange text-white px-8 sm:px-12 py-3 sm:py-4 rounded-full text-lg sm:text-xl font-bold hover:shadow-xl transition-all transform hover:scale-105 shadow-lg"
               >
-                Quero minha aula grátis!
+                Quero saber mais!
               </button>
               <p className="text-xs text-gray-500 mt-3">Garantia de satisfação de 7 dias</p>
             </div>
