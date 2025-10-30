@@ -1,10 +1,8 @@
-import { useState } from 'react';
-import { Dialog } from '@headlessui/react';
+import { Dialog } from '@headlessui/react'; // Removido useState
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const navigation = [
-  // { name: 'Início', href: '/' }, // Removido
   { name: 'Mentoria', href: '#mentoring' },
   { name: 'Depoimentos', href: '#testimonials' },
   { name: 'FAQ', href: '#faq' },
@@ -13,10 +11,10 @@ const navigation = [
 interface HeaderProps {
   mobileMenuOpen: boolean;
   setMobileMenuOpen: (open: boolean) => void;
-  onOpenContactForm: () => void;
+  // onOpenContactForm: () => void; // Removido, pois não é mais usado neste componente
 }
 
-export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContactForm }: HeaderProps) {
+export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProps) { // Removido onOpenContactForm
   const handleNavigationClick = (href: string) => {
     if (href.startsWith('#')) {
       const element = document.getElementById(href.substring(1));
@@ -37,7 +35,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
             <span className="sr-only">Uni Languages</span>
             <img
               className="h-10 w-auto"
-              src="/logo.png"
+              src="/uni-languages-logo.png"
               alt="Uni Languages Logo"
             />
           </Link>
@@ -76,7 +74,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen, onOpenContac
               <span className="sr-only">Uni Languages</span>
               <img
                 className="h-10 w-auto"
-                src="/logo.png"
+                src="/uni-languages-logo.png"
                 alt="Uni Languages Logo"
               />
             </Link>

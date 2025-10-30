@@ -1,16 +1,16 @@
-import { Mail, Phone, MapPin } from 'lucide-react'; // Removendo importações de Instagram, Facebook, Linkedin
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (
     <footer className="bg-brand-teal text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"> {/* Ajustando o grid para 3 colunas */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="sm:col-span-2">
             <div className="mb-6">
               <img 
-                src="/uni-languages-logo.png" 
+                src="/uni-languages-logo.png"
                 alt="Uni Languages" 
-                className="h-10 sm:h-12 brightness-0 invert"
+                className="h-10 sm:h-12"
               />
             </div>
             <p className="text-sm sm:text-base text-white/80 mb-6 leading-relaxed">
@@ -45,9 +45,6 @@ export default function Footer() {
               </div>
             </div>
           </div>
-
-          {/* A seção "Siga-nos" foi removida daqui */}
-
         </div>
 
         <div className="border-t border-white/20 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center text-sm sm:text-base text-white/60">
