@@ -1,11 +1,11 @@
 import { Dialog } from '@headlessui/react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import React from 'react'; // Importar React para React.MouseEvent
+import React from 'react';
 
 const navigation = [
   { name: 'Mentoria', href: '#mentoring' },
-  { name: 'Depoimentos', href: '#testimonials' },
+  { name: 'Depoimentos', href: '#depoimentos' }, // Corrigido aqui
   { name: 'FAQ', href: '#faq' },
 ];
 
@@ -17,13 +17,13 @@ interface HeaderProps {
 export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProps) {
   const handleNavigationClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
-      e.preventDefault(); // Previne o comportamento padrão do Link para âncoras
+      e.preventDefault();
       const element = document.getElementById(href.substring(1));
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }
-    setMobileMenuOpen(false); // Fechar menu mobile após clicar
+    setMobileMenuOpen(false);
   };
 
   return (
