@@ -8,9 +8,9 @@ interface ContactFormProps {
 
 export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
   const [formData, setFormData] = useState({
-    nome: '', // Alterado de 'name' para 'nome'
+    nome: '',
     email: '',
-    telefone: '' // Alterado de 'phone' para 'telefone'
+    telefone: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -27,13 +27,18 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Captura os valores atuais do formulário antes de qualquer operação assíncrona
+    const currentNome = formData.nome;
+    const currentEmail = formData.email;
+    const currentTelefone = formData.telefone;
+
     try {
       const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbx6-qMFnHQnL69QJlsavVPPAhQ0Cq5T-U1V6osiEAdCANfLicmWRdsHsdSLBIz6uEE-/exec';
       
       const formPayload = {
-        nome: formData.nome, // Usando 'nome'
-        email: formData.email,
-        telefone: formData.telefone, // Usando 'telefone'
+        nome: currentNome,
+        email: currentEmail,
+        telefone: currentTelefone,
         source: 'landing_page_contact_form',
         timestamp: new Date().toISOString()
       };
@@ -53,17 +58,22 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
         console.log('Dados enviados com sucesso para o webhook');
         setIsSubmitted(true);
         
-        // Push para o dataLayer após submissão bem-sucedida
+        // Push para o dataLayer após submissão bem-sucedida, usando os valores capturados
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
             'event': 'lead_form_submitted',
-            'user_email': formData.email,
-            'user_phone': formData.telefone
+            'user_email': currentEmail,
+            'user_phone': currentTelefone
+        });
+        console.log('Dados enviados para Data Layer:', {
+            'event': 'lead_form_submitted',
+            'user_email': currentEmail,
+            'user_phone': currentTelefone
         });
 
         setTimeout(() => {
           setIsSubmitted(false);
-          setFormData({ nome: '', email: '', telefone: '' }); // Resetando com 'nome' e 'telefone'
+          setFormData({ nome: '', email: '', telefone: '' });
           onClose();
         }, 3000);
       } else {
@@ -72,7 +82,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
         
         setTimeout(() => {
           setIsSubmitted(false);
-          setFormData({ nome: '', email: '', telefone: '' }); // Resetando com 'nome' e 'telefone'
+          setFormData({ nome: '', email: '', telefone: '' });
           onClose();
         }, 3000);
       }
@@ -80,9 +90,9 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
       console.error('Erro ao enviar para webhook:', error);
       
       console.log('Dados salvos localmente (fallback):', {
-        nome: formData.nome, // Usando 'nome'
-        email: formData.email,
-        telefone: formData.telefone, // Usando 'telefone'
+        nome: currentNome,
+        email: currentEmail,
+        telefone: currentTelefone,
         source: 'landing_page_contact_form',
         timestamp: new Date().toISOString()
       });
@@ -91,7 +101,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
       
       setTimeout(() => {
         setIsSubmitted(false);
-        setFormData({ nome: '', email: '', telefone: '' }); // Resetando com 'nome' e 'telefone'
+        setFormData({ nome: '', email: '', telefone: '' });
         onClose();
       }, 3000);
     } finally {
@@ -140,7 +150,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                   <input
                     type="text"
                     id="nome"
-                    name="nome" // Alterado para 'nome'
+                    name="nome"
                     value={formData.nome}
                     onChange={handleInputChange}
                     required
@@ -180,7 +190,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                   <input
                     type="tel"
                     id="telefone"
-                    name="telefone" // Alterado para 'telefone'
+                    name="telefone"
                     value={formData.telefone}
                     onChange={handleInputChange}
                     required
