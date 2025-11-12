@@ -53,6 +53,14 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
         console.log('Dados enviados com sucesso para o webhook');
         setIsSubmitted(true);
         
+        // Push para o dataLayer após submissão bem-sucedida
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'lead_form_submitted',
+            'user_email': formData.email,
+            'user_phone': formData.telefone
+        });
+
         setTimeout(() => {
           setIsSubmitted(false);
           setFormData({ nome: '', email: '', telefone: '' }); // Resetando com 'nome' e 'telefone'
