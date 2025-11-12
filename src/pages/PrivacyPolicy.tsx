@@ -54,14 +54,33 @@ export default function PrivacyPolicy() {
           </p>
 
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 mt-8">
-            5. Seus Direitos
+            5. Uso de Cookies
+          </h2>
+          <p className="text-gray-700 mb-4 leading-relaxed">
+            Nosso site utiliza cookies para melhorar a sua experiência de navegação. Cookies são pequenos arquivos de texto armazenados no seu dispositivo que nos ajudam a entender como você interage com nosso site, personalizar conteúdo, fornecer funcionalidades de redes sociais e analisar nosso tráfego.
+          </p>
+          <p className="text-gray-700 mb-4 leading-relaxed">
+            Utilizamos cookies para diversas finalidades, incluindo:
+          </p>
+          <ul className="list-disc list-inside text-gray-700 mb-6 space-y-2 leading-relaxed">
+            <li><strong>Cookies Essenciais:</strong> Necessários para o funcionamento básico do site, permitindo que você navegue e utilize suas funcionalidades.</li>
+            <li><strong>Cookies de Desempenho e Análise:</strong> Coletam informações sobre como os visitantes usam o site, como as páginas mais visitadas e se ocorrem erros. Esses cookies nos ajudam a melhorar o funcionamento do site.</li>
+            <li><strong>Cookies de Funcionalidade:</strong> Permitem que o site se lembre de escolhas que você faz (como seu nome de usuário, idioma ou região) e ofereça recursos aprimorados e mais personalizados.</li>
+            <li><strong>Cookies de Publicidade:</strong> Usados para exibir anúncios mais relevantes para você e seus interesses. Eles também são usados para limitar o número de vezes que você vê um anúncio e para medir a eficácia das campanhas publicitárias.</li>
+          </ul>
+          <p className="text-gray-700 mb-6 leading-relaxed">
+            Você pode controlar e gerenciar cookies através das configurações do seu navegador. A maioria dos navegadores permite que você recuse ou aceite cookies, ou que seja alertado antes que um cookie seja armazenado. No entanto, desabilitar cookies pode afetar a funcionalidade de algumas partes do nosso site.
+          </p>
+
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 mt-8">
+            6. Seus Direitos
           </h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
             Você tem o direito de acessar, corrigir ou excluir suas informações pessoais. Para exercer esses direitos, entre em contato conosco através dos canais fornecidos em nosso site.
           </p>
 
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 mt-8">
-            6. Alterações a Esta Política
+            7. Alterações a Esta Política
           </h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
             Podemos atualizar nossa Política de Privacidade periodicamente. Quaisquer alterações serão publicadas nesta página.
