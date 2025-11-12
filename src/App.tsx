@@ -5,9 +5,9 @@ import ContactForm from './components/ContactForm';
 import HeroValueProposition from './components/HeroValueProposition';
 import EmotionalMentoring from './components/EmotionalMentoring';
 import Testimonials from './components/Testimonials';
-// import ValueAnchoring from './components/ValueAnchoring'; // Removido
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
+import PrivacyPolicy from './pages/PrivacyPolicy'; // Importando o novo componente
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -35,7 +35,6 @@ function App() {
       <Header
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
-        // onOpenContactForm={() => setContactFormOpen(true)} // Removido
       />
       <ContactForm
         isOpen={contactFormOpen}
@@ -48,11 +47,11 @@ function App() {
             <HeroValueProposition onOpenContactForm={() => setContactFormOpen(true)} />
             <EmotionalMentoring onOpenContactForm={() => setContactFormOpen(true)} />
             <Testimonials onOpenContactForm={() => setContactFormOpen(true)} />
-            {/* <ValueAnchoring /> Removido */}
             <FAQSection onOpenContactForm={() => setContactFormOpen(true)} />
           </>
         } />
         <Route path="/register" element={null} /> 
+        <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} /> {/* Nova rota */}
       </Routes>
 
       <Footer />

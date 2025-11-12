@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom'; // Importando Link
 
 export default function Footer() {
   return (
@@ -17,6 +18,14 @@ export default function Footer() {
               Transformamos a insegurança em confiança. Ajudamos mulheres a se expressarem 
               naturalmente em inglês por meio de aulas particulares, personalizadas e acolhedoras.
             </p>
+            <div className="mt-4">
+              <Link 
+                to="/politica-de-privacidade" 
+                className="text-sm sm:text-base text-white/80 hover:text-brand-yellow transition-colors"
+              >
+                Política de Privacidade
+              </Link>
+            </div>
           </div>
 
           <div>
