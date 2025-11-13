@@ -1,4 +1,3 @@
-import React from 'react';
 import AnimatedSection from '../components/AnimatedSection';
 
 export default function PrivacyPolicy() {
