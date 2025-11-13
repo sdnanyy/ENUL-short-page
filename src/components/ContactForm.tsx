@@ -49,7 +49,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
       const response = await fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: {
-          'Content-Type': 'text/plain;charset=utf-8',
+          'Content-Type': 'application/json', // Alterado para application/json
           'Accept': 'application/json'
         },
         body: JSON.stringify(formPayload)
@@ -129,7 +129,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
               <Gift className="h-8 w-8" />
             </div>
             <h2 className="text-2xl font-bold mb-2">
-              Cadastre-se e ganhe sua primeira aula grátis
+              Cadastre-se e ganhe sua primeira aula grátos
             </h2>
             <p className="text-white/90">
               Preencha seus dados abaixo e nós entraremos em contato para agendar sua aula gratuita!
