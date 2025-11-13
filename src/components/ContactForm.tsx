@@ -66,7 +66,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
             'user_phone': currentTelefone
         });
         console.log('Dados enviados para Data Layer:', {
-            'event': 'lead_form_submitted',
+            'event': 'form_submit',
             'user_email': currentEmail,
             'user_phone': currentTelefone
         });
