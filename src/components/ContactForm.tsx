@@ -33,7 +33,8 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
     const currentTelefone = formData.telefone;
 
     try {
-      const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbx6-qMFnHQnL69QJlsavVPPAhQ0Cq5T-U1V6osiEAdCANfLicmWRdsHsdSLBIz6uEE-/exec';
+      // ATUALIZE ESTE URL COM O URL DO SEU APLICATIVO DA WEB DO GOOGLE APPS SCRIPT
+      const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbz83uaNmQMJwjE-zqhX4PwEcjYGDdzXxOJ6URfElPoYtcgzSKH_-SHu0Jg5DMT-LRl2/exec'; 
       
       const formPayload = {
         nome: currentNome,
@@ -61,7 +62,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
         // Push para o dataLayer após submissão bem-sucedida, usando os valores capturados
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
-            'event': 'form_submit', // Corrigido para 'form_submit'
+            'event': 'form_submit',
             'user_email': currentEmail,
             'user_phone': currentTelefone
         });

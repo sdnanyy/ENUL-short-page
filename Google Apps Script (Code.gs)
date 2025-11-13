@@ -1,0 +1,60 @@
+function doPost(e) {
+  var sheetId = '1234567890abcdefghijklmnopqrstuvwxyz'; // SUBSTITUA PELO ID DA SUA PLANILHA
+  var sheetName = 'Leads'; // SUBSTITUA PELO NOME DA ABA DA SUA PLANILHA (ex: 'Página1', 'Formulário')
+  
+  var lock = LockService.getScriptLock();
+  lock.waitLock(30000); // Espera até 30 segundos para obter o bloqueio
+
+  try {
+    var data = JSON.parse(e.postData.contents);
+    
+    var ss = SpreadsheetApp.openById(sheetId);
+    var sheet = ss.getSheetByName(sheetName);
+
+    if (!sheet) {
+      throw new Error('A aba "' + sheetName + '" não foi encontrada na planilha.');
+    }
+
+    // Adiciona um cabeçalho se a planilha estiver vazia
+    if (sheet.getLastRow() == 0) {
+      sheet.appendRow(['Timestamp', 'Nome', 'Email', 'Telefone', 'Source']);
+    }
+
+    // Adiciona os dados à planilha
+    sheet.appendRow([
+      data.timestamp,
+      data.nome,
+      data.email,
+      data.telefone,
+      data.source
+    ]);
+
+    return ContentService.createTextOutput(JSON.stringify({ status: 'success', message: 'Dados registrados com sucesso!' }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch (error) {
+    Logger.log('Erro ao processar POST: ' + error.toString());
+    return ContentService.createTextOutput(JSON.stringify({ status: 'error', message: error.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+// Função para testar o ID da planilha e o nome da aba (opcional)
+function testSheetAccess() {
+  var sheetId = '1234567890abcdefghijklmnopqrstuvwxyz'; // SUBSTITUA PELO ID DA SUA PLANILHA
+  var sheetName = 'Leads'; // SUBSTITUA PELO NOME DA ABA DA SUA PLANILHA
+
+  try {
+    var ss = SpreadsheetApp.openById(sheetId);
+    var sheet = ss.getSheetByName(sheetName);
+    if (sheet) {
+      Logger.log('Acesso à planilha e aba OK!');
+    } else {
+      Logger.log('Erro: A aba "' + sheetName + '" não foi encontrada na planilha.');
+    }
+  } catch (error) {
+    Logger.log('Erro ao acessar a planilha: ' + error.toString());
+  }
+}
