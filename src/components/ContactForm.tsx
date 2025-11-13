@@ -61,7 +61,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
         // Push para o dataLayer após submissão bem-sucedida, usando os valores capturados
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
-            'event': 'form_submit',
+            'event': 'form_submit', // Corrigido para 'form_submit'
             'user_email': currentEmail,
             'user_phone': currentTelefone
         });
