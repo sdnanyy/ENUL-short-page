@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import ContactForm from './components/ContactForm';
-import HeroValueProposition from './components/HeroValueProposition';
+import HeroSection from './components/HeroSection'; // Importando HeroSection
 import EmotionalMentoring from './components/EmotionalMentoring';
 import Testimonials from './components/Testimonials';
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
-import PrivacyPolicy from './pages/PrivacyPolicy'; // Importando o novo componente
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -44,14 +44,14 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <HeroValueProposition onOpenContactForm={() => setContactFormOpen(true)} />
+            <HeroSection onOpenContactForm={() => setContactFormOpen(true)} /> {/* Usando HeroSection */}
             <EmotionalMentoring onOpenContactForm={() => setContactFormOpen(true)} />
             <Testimonials onOpenContactForm={() => setContactFormOpen(true)} />
             <FAQSection onOpenContactForm={() => setContactFormOpen(true)} />
           </>
         } />
         <Route path="/register" element={null} /> 
-        <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} /> {/* Nova rota */}
+        <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
       </Routes>
 
       <Footer />
