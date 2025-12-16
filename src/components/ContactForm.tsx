@@ -44,15 +44,17 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
         timestamp: new Date().toISOString()
       };
 
+      // Converte o payload para o formato URL-encoded
+      const formBody = new URLSearchParams(formPayload).toString();
+
       console.log('Enviando dados para webhook:', formPayload);
 
       const response = await fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json', // Alterado para application/json
-          'Accept': 'application/json'
+          'Content-Type': 'application/x-www-form-urlencoded', // Alterado para form-urlencoded
         },
-        body: JSON.stringify(formPayload)
+        body: formBody // Envia o corpo no formato URL-encoded
       });
 
       if (response.ok) {
