@@ -36,7 +36,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
       // ATUALIZE ESTE URL COM O URL DO SEU APLICATIVO DA WEB DO GOOGLE APPS SCRIPT
       const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbz83uaNmQMJwjE-zqhX4PwEcjYGDdzXxOJ6URfElPoYtcgzSKH_-SHu0Jg5DMT-LRl2/exec'; 
       
-      const formPayload = {
+      const data = { // Objeto de dados conforme solicitado
         nome: currentNome,
         email: currentEmail,
         telefone: currentTelefone,
@@ -44,17 +44,14 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
         timestamp: new Date().toISOString()
       };
 
-      // Converte o payload para o formato URL-encoded
-      const formBody = new URLSearchParams(formPayload).toString();
-
-      console.log('Enviando dados para webhook:', formPayload);
+      console.log('Enviando dados para webhook:', data);
 
       const response = await fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded', // Alterado para form-urlencoded
+          'Content-Type': 'text/plain;charset=utf-8', // Crucial para o Apps Script
         },
-        body: formBody // Envia o corpo no formato URL-encoded
+        body: JSON.stringify(data) // Envia o corpo como JSON stringificado
       });
 
       if (response.ok) {
@@ -81,8 +78,9 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
         }, 3000);
       } else {
         console.error('Erro na resposta do webhook:', response.status, response.statusText);
-        setIsSubmitted(true);
-        
+        // Em caso de erro, ainda podemos mostrar a mensagem de sucesso para o usuário
+        // e registrar os dados localmente como um fallback, se necessário.
+        setIsSubmitted(true); 
         setTimeout(() => {
           setIsSubmitted(false);
           setFormData({ nome: '', email: '', telefone: '' });
@@ -100,7 +98,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
         timestamp: new Date().toISOString()
       });
       
-      setIsSubmitted(true);
+      setIsSubmitted(true); // Mostrar mensagem de sucesso mesmo com erro de rede
       
       setTimeout(() => {
         setIsSubmitted(false);
