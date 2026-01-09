@@ -2,7 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' www.googletagmanager.com www.google-analytics.com ssl.google-analytics.com www.googleadservices.com www.gstatic.com google.com www.google.com doubleclick.net stats.g.doubleclick.net tagmanager.google.com analytics.google.com adservice.google.com googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: www.googletagmanager.com www.google-analytics.com ssl.google-analytics.com www.googleadservices.com www.gstatic.com images.pexels.com google.com www.google.com doubleclick.net stats.g.doubleclick.net www.google.com/ads adservice.google.com googleads.g.doubleclick.net; connect-src 'self' www.googletagmanager.com www.google-analytics.com ssl.google-analytics.com www.googleadservices.com google.com www.google.com doubleclick.net stats.g.doubleclick.net analytics.google.com tagmanager.google.com adservice.google.com script.google.com https://script.google.com; font-src 'self' data: fonts.gstatic.com use.typekit.net; frame-src 'self' www.googletagmanager.com https://www.googletagmanager.com google.com www.google.com doubleclick.net stats.g.doubleclick.net adservice.google.com googleads.g.doubleclick.net;" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' www.googletagmanager.com www.google-analytics.com ssl.google-analytics.com www.googleadservices.com www.gstatic.com google.com www.google.com doubleclick.net stats.g.doubleclick.net tagmanager.google.com analytics.google.com adservice.google.com googleads.g.doubleclick.net connect.facebook.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: www.googletagmanager.com www.google-analytics.com ssl.google-analytics.com www.googleadservices.com www.gstatic.com images.pexels.com google.com www.google.com doubleclick.net stats.g.doubleclick.net www.google.com/ads adservice.google.com googleads.g.doubleclick.net www.facebook.com; connect-src 'self' www.googletagmanager.com www.google-analytics.com ssl.google-analytics.com www.googleadservices.com google.com www.google.com doubleclick.net stats.g.doubleclick.net analytics.google.com tagmanager.google.com adservice.google.com script.google.com https://script.google.com connect.facebook.net www.facebook.com; font-src 'self' data: fonts.gstatic.com use.typekit.net; frame-src 'self' www.googletagmanager.com https://www.googletagmanager.com google.com www.google.com doubleclick.net stats.g.doubleclick.net adservice.google.com googleads.g.doubleclick.net;" />
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -10,6 +10,23 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-K58MHJ6W');</script>
     <!-- End Google Tag Manager -->
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '152547097729565');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=152547097729565&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
     <link rel="preload" href="/uni-languages-logo.png" as="image" />
     <link rel="dns-prefetch" href="//images.pexels.com" />
     <link rel="preconnect" href="//images.pexels.com" crossorigin />
