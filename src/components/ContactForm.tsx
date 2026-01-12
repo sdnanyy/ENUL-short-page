@@ -34,9 +34,9 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
 
     try {
       // ATUALIZE ESTE URL COM O URL DO SEU APLICATIVO DA WEB DO GOOGLE APPS SCRIPT
-      const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxpcsszbJ97-gZBG2zPZIGdj1b6NOyqSXvhFE9YvgiW-IuFRhCIPGck3lrRt90Sk1cQ/exec'; 
+      const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbz83uaNmQMJwjE-zqhX4PwEcjYGDdzXxOJ6URfElPoYtcgzSKH_-SHu0Jg5DMT-LRl2/exec'; 
       
-      const formPayload = {
+      const data = { // Objeto de dados conforme solicitado
         nome: currentNome,
         email: currentEmail,
         telefone: currentTelefone,
@@ -44,15 +44,14 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
         timestamp: new Date().toISOString()
       };
 
-      console.log('Enviando dados para webhook:', formPayload);
+      console.log('Enviando dados para webhook:', data);
 
       const response = await fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json', // Alterado para application/json
-          'Accept': 'application/json'
+          'Content-Type': 'text/plain;charset=utf-8', // Crucial para o Apps Script
         },
-        body: JSON.stringify(formPayload)
+        body: JSON.stringify(data) // Envia o corpo como JSON stringificado
       });
 
       if (response.ok) {
@@ -79,8 +78,9 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
         }, 3000);
       } else {
         console.error('Erro na resposta do webhook:', response.status, response.statusText);
-        setIsSubmitted(true);
-        
+        // Em caso de erro, ainda podemos mostrar a mensagem de sucesso para o usuário
+        // e registrar os dados localmente como um fallback, se necessário.
+        setIsSubmitted(true); 
         setTimeout(() => {
           setIsSubmitted(false);
           setFormData({ nome: '', email: '', telefone: '' });
@@ -98,7 +98,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
         timestamp: new Date().toISOString()
       });
       
-      setIsSubmitted(true);
+      setIsSubmitted(true); // Mostrar mensagem de sucesso mesmo com erro de rede
       
       setTimeout(() => {
         setIsSubmitted(false);
@@ -129,7 +129,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
               <Gift className="h-8 w-8" />
             </div>
             <h2 className="text-2xl font-bold mb-2">
-              Cadastre-se e ganhe sua primeira aula grátos
+              Cadastre-se e ganhe sua primeira aula grátis
             </h2>
             <p className="text-white/90">
               Preencha seus dados abaixo e nós entraremos em contato para agendar sua aula gratuita!
