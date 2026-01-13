@@ -34,7 +34,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
 
     try {
       // ATUALIZE ESTE URL COM O URL DO SEU APLICATIVO DA WEB DO GOOGLE APPS SCRIPT
-      const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbz83uaNmQMJwjE-zqhX4PwEcjYGDdzXxOJ6URfElPoYtcgzSKH_-SHu0Jg5DMT-LRl2/exec'; 
+const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzDMVH2wzje1AQmNGCDGH3fKbzV2Ye2A0QvJE6YXg4UQoNTTNI92O3qd1UmOY49swFWFg/exec'; 
       
       const data = { // Objeto de dados conforme solicitado
         nome: currentNome,
